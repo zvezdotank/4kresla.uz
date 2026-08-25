@@ -172,6 +172,8 @@ a.contact__value:hover{color:var(--brass-600)}
 .footer{background:var(--ink-1000);color:var(--paper);display:flex;align-items:center;
   justify-content:space-between;gap:var(--space-5);padding:var(--space-5) var(--space-6)}
 .footer__credit{font-family:var(--font-script);font-size:22px}
+.footer__since{font:var(--type-label);letter-spacing:var(--ls-label);text-transform:uppercase;
+  color:rgba(255,255,255,.5)}
 .footer__note{font:var(--type-label);letter-spacing:var(--ls-label);color:rgba(255,255,255,.6)}
 .footer__link{color:rgba(255,255,255,.6)}
 .footer__link:hover{color:var(--brass-500)}

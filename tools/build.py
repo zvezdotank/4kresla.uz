@@ -76,6 +76,7 @@ NAV = """<nav class="nav" aria-label="Основная навигация">
 
 FOOTER = """<footer class="footer">
   <a class="footer__credit" href="{base}index.html">Четыре кресла</a>
+  <span class="footer__since">Стрижём с 1972 года</span>
   <span class="footer__note">
     <a class="footer__link" href="https://sales-hub.uz/?utm_source={domain}&amp;utm_medium=referral&amp;utm_campaign=footer" target="_blank" rel="noopener">Сайт и продвижение — Sales HUB</a>
   </span>
