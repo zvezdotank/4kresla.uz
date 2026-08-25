@@ -169,9 +169,10 @@ img{display:block;max-width:100%}
   text-transform:uppercase;color:var(--text-primary)}
 .contact__value{display:block;font-family:var(--font-body);font-size:var(--fs-sm);
   color:var(--text-body);margin-top:5px}
+.contact__hint{color:var(--text-muted)}
 a.contact__value{color:var(--text-body)}
 a.contact__value:hover{color:var(--brass-600)}
-.map{width:100%;height:300px;background:var(--ink-050);overflow:hidden;margin-top:var(--space-4)}
+.map{width:100%;height:380px;background:var(--ink-050);overflow:hidden;margin-top:var(--space-4)}
 .map__svg{display:block;width:100%;height:100%}
 .maplinks{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-3);padding:var(--space-5) 0 0}
 .mapnote{font-size:var(--fs-xs);letter-spacing:.02em;color:var(--text-muted);text-align:center;
@@ -200,6 +201,9 @@ a.contact__value:hover{color:var(--brass-600)}
 
 body.is-locked{overflow:hidden}
 
+/* ---------- плавающая кнопка звонка (только на телефоне) ---------- */
+.callbar{display:none}
+
 /* ---------- responsive ---------- */
 @media (max-width:1000px){
   .tools{grid-template-columns:repeat(3,1fr)}
@@ -207,6 +211,16 @@ body.is-locked{overflow:hidden}
 }
 @media (max-width:900px){
   :root{--section-y:var(--space-7);--section-y-tight:var(--space-6)}
+  body{padding-bottom:60px}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:45;
+    align-items:center;justify-content:center;gap:var(--space-3);height:60px;
+    background:var(--action-fill);color:var(--action-text);
+    font-family:var(--font-display);font-weight:var(--fw-bold);font-size:var(--fs-body);
+    letter-spacing:var(--ls-label);text-transform:uppercase;
+    box-shadow:0 -2px 12px rgba(17,17,17,.18);border-top:2px solid var(--brass-700)}
+  .callbar:active{background:var(--action-fill-press);color:var(--action-text)}
+  .callbar:hover{color:var(--action-text)}
+  .scroll-cue{display:none}
   .nav{gap:var(--space-4);padding:0 var(--container-pad)}
   .nav__burger{display:block}
   .nav__phone{display:none}
@@ -226,11 +240,11 @@ body.is-locked{overflow:hidden}
 @media (max-width:760px){
   .team{grid-template-columns:repeat(3,1fr)}
   .contacts{grid-template-columns:repeat(2,1fr);gap:var(--space-5)}
-  .map{height:260px}
+  .map{height:320px}
   .footer{flex-direction:column;text-align:center;gap:var(--space-4);padding:var(--space-6) var(--container-pad)}
 }
 @media (max-width:560px){
-  .map{height:300px}
+  .map{height:340px}
   .tools{grid-template-columns:repeat(2,1fr);gap:var(--space-3)}
   .tool__icon{width:60px;height:60px}
   .team{grid-template-columns:repeat(2,1fr)}

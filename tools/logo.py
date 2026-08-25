@@ -156,8 +156,13 @@ if __name__ == "__main__":
     for name, data in files.items():
         (OUT / name).write_text(data)
 
-    # фавикон и иконка для телефона
-    (ROOT / "favicon.svg").write_text(mark(BRASS, INK, 100))
+    # фавикон: чёрные ножницы на прозрачном фоне; в тёмной теме браузера — белые
+    (ROOT / "favicon.svg").write_text(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">'
+        '<style>.s{stroke:#111111}@media (prefers-color-scheme:dark){.s{stroke:#ffffff}}</style>'
+        '<g class="s" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">'
+        '<path d="M34 70 50 46 57 10"/><path d="M66 70 50 46 43 10"/>'
+        '<circle cx="30" cy="79" r="10"/><circle cx="70" cy="79" r="10"/></g></svg>\n')
 
     png(OUT / "4kresla-znak-kvadrat.svg", ROOT / "apple-touch-icon.png", 180, False)
     for stem in ("4kresla-gorizontalnyy-chernyy", "4kresla-gorizontalnyy-belyy",

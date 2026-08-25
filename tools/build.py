@@ -76,6 +76,11 @@ NAV = """<nav class="nav" aria-label="Основная навигация">
   <a class="nav__phone" href="tel:{phone}">{phone_text}</a>
 </nav>"""
 
+CALLBAR = """<a class="callbar" href="tel:{phone}">
+  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-phone"/></svg>
+  Позвонить и записаться
+</a>"""
+
 FOOTER = """<footer class="footer">
   <a class="footer__credit" href="{base}index.html"><img src="{base}assets/logo/4kresla-gorizontalnyy-belyy.svg" alt="Четыре кресла" width="196" height="55"></a>
   <span class="footer__since">Стрижём с 1972 года</span>
@@ -216,6 +221,8 @@ def page(m):
 </section>
 </main>
 
+{CALLBAR.format(phone=SALON["phone"])}
+
 {FOOTER.format(base="../", domain=DOMAIN)}
 
 <div class="overlay lightbox" id="lightbox" hidden>
@@ -333,7 +340,7 @@ def media_page():
     <div class="facts">
       <div class="fact"><span class="fact__label">Название</span><span class="fact__value">Четыре кресла</span></div>
       <div class="fact"><span class="fact__label">Кто мы</span><span class="fact__value">парикмахерская, работает с 1972 года</span></div>
-      <div class="fact"><span class="fact__label">Адрес</span><span class="fact__value">{SALON["address"]}, 1-й этаж 9-этажного дома</span></div>
+      <div class="fact"><span class="fact__label">Адрес</span><span class="fact__value">{SALON["address"]}, 1-й этаж 9-этажного дома, ориентир — завод «Электроаппарат»</span></div>
       <div class="fact"><span class="fact__label">Телефон</span><span class="fact__value">{SALON["phone_text"]}, Евгений</span></div>
       <div class="fact"><span class="fact__label">Часы</span><span class="fact__value">{SALON["hours"]}, только по предварительной записи</span></div>
       <div class="fact"><span class="fact__label">Сайт</span><span class="fact__value">{DOMAIN}</span></div>
@@ -349,6 +356,8 @@ def media_page():
   </div>
 </section>
 </main>
+
+{CALLBAR.format(phone=SALON["phone"])}
 
 {FOOTER.format(base="", domain=DOMAIN)}
 

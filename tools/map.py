@@ -25,6 +25,7 @@ NAME = "Четыре кресла"
 # ── палитра сайта: только нейтральный пепел и латунь ────────────────────
 BG = "#f6f6f6"
 AREA = "#eeeeee"
+INDUSTRIAL = "#e9e6e0"
 WATER = "#e6e9ea"
 BUILDING = "#e0e0e0"
 BUILDING_NEAR = "#c9c9c9"
@@ -80,12 +81,23 @@ def fetch(bbox):
   way({s},{w},{n},{e})[natural=water];
   way({s},{w},{n},{e})[waterway];
   way({s},{w},{n},{e})[railway];
+  way({s},{w},{n},{e})[landuse=industrial];
+  way({s},{w},{n},{e})[amenity~"^(school|hospital|marketplace)$"];
 );
 out geom tags;"""
-    req = urllib.request.Request(
-        "https://overpass-api.de/api/interpreter", data=q.encode(),
-        headers={"User-Agent": "barbershop-site-build/1.0"})
-    data = json.loads(urllib.request.urlopen(req, timeout=120).read())
+    mirrors = ("https://overpass-api.de/api/interpreter",
+               "https://overpass.kumi.systems/api/interpreter",
+               "https://overpass.osm.jp/api/interpreter")
+    for i, url in enumerate(mirrors):          # публичные зеркала регулярно отдают 504
+        try:
+            req = urllib.request.Request(url, data=q.encode(),
+                                         headers={"User-Agent": "barbershop-site-build/1.0"})
+            data = json.loads(urllib.request.urlopen(req, timeout=180).read())
+            break
+        except Exception as e:
+            print(f"  {url} — {e}")
+            if i == len(mirrors) - 1:
+                raise
     CACHE.write_text(json.dumps(data))
     return data
 
@@ -114,7 +126,7 @@ def render(data, px_w, px_h, span_m):
                 return True
         return False
 
-    areas, buildings, rails = [], [], []
+    areas, buildings, rails, places = [], [], [], []
     road_layers = {0: [], 1: [], 2: [], 3: []}
     labels = {}
     mx, my = pt(LAT, LON)
@@ -128,9 +140,20 @@ def render(data, px_w, px_h, span_m):
         d = "M" + "L".join(f"{x:.1f} {y:.1f}" for x, y in pts)
 
         if "building" in t:
-            buildings.append((d, pts))
+            if any(math.dist(p, (mx, my)) < 190 for p in pts):   # только соседние дома
+                buildings.append((d, pts))
         elif t.get("natural") == "water" or "waterway" in t:
             areas.append((d + "Z", WATER))
+        elif t.get("landuse") == "industrial":
+            areas.append((d + "Z", INDUSTRIAL))
+            name = (t.get("name") or "").lower()
+            if "lektroapparat" in name or "лектроаппарат" in name:
+                # подписываем ту часть заводской территории, что попала в кадр
+                inside = [q for q in pts if 90 < q[0] < px_w - 90 and 60 < q[1] < px_h - 60]
+                use = inside or [min(pts, key=lambda q: math.hypot(q[0] - mx, q[1] - my))]
+                places.append(("ЗАВОД ЭЛЕКТРОАППАРАТ",
+                               sum(q[0] for q in use) / len(use),
+                               sum(q[1] for q in use) / len(use)))
         elif "landuse" in t or "leisure" in t:
             areas.append((d + "Z", AREA))
         elif "railway" in t:
@@ -209,6 +232,17 @@ def render(data, px_w, px_h, span_m):
         if placed >= 5:
             break
 
+    for name, px_, py_ in places[:1]:
+        px_ = min(max(px_, 130), px_w - 130)      # держим подпись в кадре
+        py_ = min(max(py_, 60), px_h - 60)
+        if abs(py_ - my) < 115 and abs(px_ - mx) < 220:   # не жмёмся к метке салона
+            py_ = min(my + 130, px_h - 60)
+        if True:
+            o.append(f'<text x="{px_:.1f}" y="{py_:.1f}" text-anchor="middle" font-size="13" '
+                     f'font-family="PT Sans Narrow, sans-serif" font-weight="700" letter-spacing="1.6" '
+                     f'fill="#7d7d7d" paint-order="stroke" stroke="{BG}" stroke-width="4" '
+                     f'stroke-linejoin="round">{name}</text>')
+
     # ── метка салона: чернильный круг с латунными ножницами ─────────────
     r = 22
     scissors = 'M34 70 50 46 57 10M66 70 50 46 43 10'   # тот же знак, что в логотипе
@@ -232,8 +266,8 @@ def render(data, px_w, px_h, span_m):
 
 
 if __name__ == "__main__":
-    data = fetch((41.2755, 69.2985, 41.2827, 69.3117))
-    svg = render(data, 1280, 420, span_m=620)
+    data = fetch((41.2701, 69.2931, 41.2881, 69.3171))
+    svg = render(data, 1280, 460, span_m=1250)
     page = ROOT / "index.html"
     html = page.read_text()
     a, b = html.index("<!-- map:start -->"), html.index("<!-- map:end -->")
