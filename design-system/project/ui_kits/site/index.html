@@ -1,0 +1,34 @@
+<!-- @dsCard group="Сайт салона" viewport="1140x760" name="Главная страница" subtitle="Одностраничный сайт: герой, команда, прайс, галерея, контакты" -->
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><title>Парикмахерская нормального человека</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{background:var(--surface-page)}</style></head>
+<body><div id="root"></div>
+<script type="text/babel" src="sections.kit.jsx"></script>
+<script type="text/babel" src="booking-flow.kit.jsx"></script>
+<script type="text/babel">
+function App(){
+  const [booking,setBooking]=React.useState(false);
+  const [shot,setShot]=React.useState(null);
+  const [active,setActive]=React.useState("Салон");
+  const go=id=>{const el=document.getElementById(id);if(el)window.scrollTo({top:el.offsetTop-56,behavior:"smooth"});setActive(id);};
+  return <div>
+    <div style={{position:"sticky",top:0,zIndex:40}}>
+      <NavBar items={NAV} active={active} phone="+7 (900) 010-83-22" onSelect={go}/>
+    </div>
+    <Hero onBook={()=>setBooking(true)} onScroll={()=>go("Салон")}/>
+    <Welcome/><Team/><Prices/>
+    <GalleryBand onOpen={setShot}/>
+    <Contacts/>
+    <Footer/>
+    <BookingDialog open={booking} onClose={()=>setBooking(false)}/>
+    <Lightbox index={shot} onClose={()=>setShot(null)}/>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body></html>

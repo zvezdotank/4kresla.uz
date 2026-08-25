@@ -1,0 +1,30 @@
+<!-- @dsCard group="Components" viewport="700x340" name="Content" subtitle="Master cards, price rows, gallery tiles, contacts, wordmark" -->
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{background:var(--surface-page);padding:24px;display:block}.row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}.stack{display:flex;flex-direction:column;gap:16px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { MasterCard, PriceItem, GalleryTile, ContactItem, Wordmark } = window.DesignSystem_e7043d;
+const P="../../assets/photos/";
+function Demo(){return <div className="stack" style={{gap:22}}>
+  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 2.2fr",gap:16}}>
+    <MasterCard name="Иванов Михаил" photo={P+"master-ivanov.png"}/>
+    <MasterCard name="Петров Александр" photo={P+"master-petrov.png"}/>
+    <div className="stack" style={{gap:14}}>
+      <div><PriceItem service="Мужская стрижка" price={1200}/><PriceItem service="Опасное бритьё" price={1000}/></div>
+      <div className="row" style={{gap:24}}><ContactItem icon="clock" label="Ежедневно" value="с 9:00 до 20:00"/><ContactItem icon="map-pin" label="Наш адрес" value="ул. Строителей д.2"/></div>
+    </div>
+  </div>
+  <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr) 1.2fr",gap:12,alignItems:"center"}}>
+    <GalleryTile src={P+"gallery-1.png"} onClick={()=>{}}/><GalleryTile src={P+"gallery-2.png"} onClick={()=>{}}/><GalleryTile src={P+"gallery-3.png"} onClick={()=>{}}/>
+    <div style={{background:"var(--ink-1000)",padding:"18px 12px"}}><Wordmark size={26}/></div>
+  </div>
+</div>;}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo/>);
+</script>
+</body></html>

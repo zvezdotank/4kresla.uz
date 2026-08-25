@@ -1,0 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Marck+Script&display=swap");
+/* Substitution note: original page fonts were not supplied. Oswald (condensed uppercase display),
+   PT Sans (Cyrillic body) and Marck Script (handwritten accent) are the nearest Google Fonts matches. */
+:root{--font-display:"Oswald",Impact,sans-serif;--font-body:"PT Sans","Helvetica Neue",Arial,sans-serif;--font-script:"Marck Script",cursive}

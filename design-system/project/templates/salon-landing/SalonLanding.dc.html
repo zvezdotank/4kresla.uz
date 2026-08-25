@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Сайт салона — главная" description="Одностраничный сайт барбершопа: герой, о салоне, команда, прайс, галерея, контакты." -->
+<helmet><script src="./ds-base.js"></script><script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.js"></script><style>body{margin:0;background:#fff}</style></helmet>
+<div style="font-family:'PT Sans',Arial,sans-serif;color:#4a4a4a">
+<x-import component-from-global-scope="DesignSystem_e7043d.NavBar" items="{{ nav }}" active="Салон" phone="+7 (900) 010-83-22" hint-size="100%,56px"></x-import>
+<section style="position:relative;height:520px;overflow:hidden;background:#242424">
+<img src="../../assets/photos/interior-wide.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:grayscale(1) contrast(1.06)">
+<div style="position:absolute;inset:0;background:rgba(17,17,17,.42)"></div>
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px">
+<x-import component-from-global-scope="DesignSystem_e7043d.Wordmark" size="{{ 54 }}" hint-size="420px,120px"></x-import>
+<x-import component-from-global-scope="DesignSystem_e7043d.Button" size="lg" hint-size="260px,56px">Записаться онлайн</x-import>
+</div></section>
+<section style="background:#f6f6f6;padding:80px 20px">
+<div style="max-width:1140px;margin:0 auto;text-align:center">
+<h2 style="font-family:Oswald,sans-serif;font-weight:700;font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:#111;margin:0">Добро пожаловать!</h2>
+<p style="max-width:78ch;margin:24px auto 0;font-size:15px;line-height:1.7;text-wrap:pretty">Это барбершоп, а не салон красоты. Это просто сеть мужских парикмахерских. Нам всё равно, есть ли у наших мастеров бороды и татуировки. Мы просто стрижём мужчин. И делаем это лучше всех.</p>
+<h2 style="font-family:Oswald,sans-serif;font-weight:700;font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:#111;margin:80px 0 0">Наша команда</h2>
+<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:48px">
+<x-import component-from-global-scope="DesignSystem_e7043d.MasterCard" name="Иванов Михаил" photo="../../assets/photos/master-ivanov.png" hint-size="100%,240px"></x-import>
+<x-import component-from-global-scope="DesignSystem_e7043d.MasterCard" name="Петров Александр" photo="../../assets/photos/master-petrov.png" hint-size="100%,240px"></x-import>
+<x-import component-from-global-scope="DesignSystem_e7043d.MasterCard" name="Миронов Артем" photo="../../assets/photos/master-mironov.png" hint-size="100%,240px"></x-import>
+<x-import component-from-global-scope="DesignSystem_e7043d.MasterCard" name="Тихонов Илья" photo="../../assets/photos/master-tihonov.png" hint-size="100%,240px"></x-import>
+<x-import component-from-global-scope="DesignSystem_e7043d.MasterCard" name="Фадеев Игорь" photo="../../assets/photos/master-fadeev.png" hint-size="100%,240px"></x-import>
+</div>
+<h2 style="font-family:Oswald,sans-serif;font-weight:700;font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:#111;margin:80px 0 32px">Прайс-лист</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;column-gap:80px;text-align:left">
+<x-import component-from-global-scope="DesignSystem_e7043d.PriceItem" service="Мужская стрижка" price="1200" hint-size="100%,48px"></x-import>
+<x-import component-from-global-scope="DesignSystem_e7043d.PriceItem" service="Стрижка бороды/усов" price="800" hint-size="100%,48px"></x-import>
+<x-import component-from-global-scope="DesignSystem_e7043d.PriceItem" service="Детская стрижка" price="1000" hint-size="100%,48px"></x-import>
+<x-import component-from-global-scope="DesignSystem_e7043d.PriceItem" service="Опасное бритьё" price="1000" hint-size="100%,48px"></x-import>
+<x-import component-from-global-scope="DesignSystem_e7043d.PriceItem" service="Стрижка машинкой" price="800" hint-size="100%,48px"></x-import>
+<x-import component-from-global-scope="DesignSystem_e7043d.PriceItem" service="Стрижка + бритьё" price="2000" hint-size="100%,48px"></x-import>
+</div></div></section>
+<img src="../../assets/photos/interior-wide.png" alt="" style="width:100%;height:470px;object-fit:cover;filter:grayscale(1) contrast(1.06)">
+<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:12px 0;background:#fff">
+<img src="../../assets/photos/gallery-1.png" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover;filter:grayscale(1) contrast(1.06)">
+<img src="../../assets/photos/gallery-2.png" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover;filter:grayscale(1) contrast(1.06)">
+<img src="../../assets/photos/gallery-3.png" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover;filter:grayscale(1) contrast(1.06)">
+<img src="../../assets/photos/gallery-4.png" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover;filter:grayscale(1) contrast(1.06)">
+<img src="../../assets/photos/gallery-5.png" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover;filter:grayscale(1) contrast(1.06)">
+</div>
+<section style="background:#f6f6f6;padding:48px 20px 0">
+<div style="max-width:1140px;margin:0 auto;text-align:center">
+<h2 style="font-family:Oswald,sans-serif;font-weight:700;font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:#111;margin:0">Контакты</h2>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:48px 0;text-align:left">
+<x-import component-from-global-scope="DesignSystem_e7043d.ContactItem" icon="clock" label="Ежедневно" value="с 9:00 до 20:00" hint-size="100%,50px"></x-import>
+<x-import component-from-global-scope="DesignSystem_e7043d.ContactItem" icon="mail" label="Почта" value="welcome@barbershop.ru" hint-size="100%,50px"></x-import>
+<x-import component-from-global-scope="DesignSystem_e7043d.ContactItem" icon="phone" label="Телефон" value="8 (900) 020-83-22" hint-size="100%,50px"></x-import>
+<x-import component-from-global-scope="DesignSystem_e7043d.ContactItem" icon="map-pin" label="Наш адрес" value="г. Москва, ул. Строителей д.2" hint-size="100%,50px"></x-import>
+</div></div>
+<img src="../../assets/photos/map-moscow.png" alt="Карта" style="width:100%;height:150px;object-fit:cover">
+</section>
+<x-import component-from-global-scope="DesignSystem_e7043d.Footer" hint-size="100%,80px"></x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals(){ return { nav: ["Салон","Команда","Прайс","Галерея","Контакты"] }; }
+}
+</script>
+</body>
+</html>

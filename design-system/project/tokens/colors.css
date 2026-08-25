@@ -1,0 +1,14 @@
+:root{
+/* base neutrals */
+--ink-1000:#111111;--ink-900:#1c1c1c;--ink-800:#242424;--ink-700:#333333;--ink-600:#4a4a4a;--ink-500:#6e6e6e;--ink-400:#9b9b9b;--ink-300:#c9c9c9;--ink-200:#e2e2e2;--ink-100:#f0f0f0;--ink-050:#f6f6f6;--paper:#ffffff;
+/* brand brass */
+--brass-700:#8f7126;--brass-600:#a9873a;--brass-500:#c1a054;--brass-400:#cdb073;--brass-300:#e0cb9d;--brass-100:#f3ecdb;
+/* semantic */
+--text-primary:var(--ink-1000);--text-body:var(--ink-600);--text-muted:var(--ink-400);--text-inverse:var(--paper);--text-accent:var(--brass-600);
+--surface-page:var(--paper);--surface-alt:var(--ink-050);--surface-card:var(--paper);--surface-dark:var(--ink-900);--surface-photo:var(--ink-800);
+--border-hairline:var(--ink-200);--border-strong:var(--ink-300);--border-accent:var(--brass-500);--border-inverse:rgba(255,255,255,.22);
+--action-fill:var(--brass-500);--action-fill-hover:var(--brass-600);--action-fill-press:var(--brass-700);--action-text:var(--ink-1000);
+--overlay-photo:rgba(17,17,17,.42);--overlay-photo-strong:rgba(17,17,17,.66);
+--focus-ring:var(--brass-500);
+--status-success:#4f7a48;--status-warning:#b8862b;--status-danger:#9c3b31
+}
