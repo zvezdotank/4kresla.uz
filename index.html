@@ -53,7 +53,6 @@
     <li><a class="nav__link" href="#salon">О нас</a></li>
     <li><a class="nav__link" href="#team">Мастера</a></li>
     <li><a class="nav__link" href="#prices">Цены</a></li>
-    <li><a class="nav__link" href="#tools">Инструмент</a></li>
     <li><a class="nav__link" href="#gallery">Фото</a></li>
     <li><a class="nav__link" href="#contacts">Контакты</a></li>
   </ul>
@@ -176,26 +175,34 @@
   </div>
 </section>
 
-<section class="section section--alt section--flush-bottom" id="contacts">
+<section class="section section--alt" id="contacts">
   <div class="container">
-    <div class="heading"><h2>Контакты</h2><span class="rule"></span></div>
-    <div class="contacts">
-      <div class="contact">
-        <span class="contact__icon" aria-hidden="true"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg></span>
-        <span><span class="contact__label">Ежедневно</span><span class="contact__value">с 9:00 до 18:00</span></span>
+    <div class="contacts-block">
+      <div class="contacts-block__info">
+        <div class="heading heading--left"><h2>Контакты</h2><span class="rule"></span></div>
+<div class="contacts">
+        <div class="contact">
+          <span class="contact__icon" aria-hidden="true"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg></span>
+          <span><span class="contact__label">Ежедневно</span><span class="contact__value">с 9:00 до 18:00</span></span>
+        </div>
+        <div class="contact">
+          <span class="contact__icon" aria-hidden="true"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-phone"/></svg></span>
+          <span><span class="contact__label">Телефон</span><a class="contact__value" href="tel:+998903579540">+998 90 357-95-40, Евгений</a></span>
+        </div>
+        <div class="contact">
+          <span class="contact__icon" aria-hidden="true"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-map-pin"/></svg></span>
+          <span><span class="contact__label">Наш адрес</span><span class="contact__value">Ташкент, ул. Сайхун, 166<br>1-й этаж 9-этажного дома<br><span class="contact__hint">Ориентир — завод «Электроаппарат»</span></span></span>
+        </div>
+        </div>
+        <div class="maplinks">
+          <a class="btn btn--outline btn--sm" href="https://yandex.uz/maps/?ll=69.305078%2C41.279101&amp;z=18&amp;pt=69.305078%2C41.279101%2Cpm2rdm" target="_blank" rel="noopener">Яндекс Карты</a>
+          <a class="btn btn--outline btn--sm" href="https://www.google.com/maps/search/?api=1&amp;query=41.279101%2C69.305078" target="_blank" rel="noopener">Google Карты</a>
+          <a class="btn btn--outline btn--sm" href="https://maps.apple.com/?ll=41.279101,69.305078&amp;q=%D0%A7%D0%B5%D1%82%D1%8B%D1%80%D0%B5%20%D0%BA%D1%80%D0%B5%D1%81%D0%BB%D0%B0" target="_blank" rel="noopener">Apple Карты</a>
+        </div>
+        <p class="mapnote">Карта нарисована по данным <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a></p>
       </div>
-      <div class="contact">
-        <span class="contact__icon" aria-hidden="true"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-phone"/></svg></span>
-        <span><span class="contact__label">Телефон</span><a class="contact__value" href="tel:+998903579540">+998 90 357-95-40, Евгений</a></span>
-      </div>
-      <div class="contact">
-        <span class="contact__icon" aria-hidden="true"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-map-pin"/></svg></span>
-        <span><span class="contact__label">Наш адрес</span><span class="contact__value">Ташкент, ул. Сайхун, 166<br>1-й этаж 9-этажного дома<br><span class="contact__hint">Ориентир — завод «Электроаппарат»</span></span></span>
-      </div>
-    </div>
-  </div>
-  <div class="map">
-    <!-- map:start -->
+      <div class="map">
+        <!-- map:start -->
 <svg class="map__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 460" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Карта: Ташкент, улица Сайхун, 166">
 <rect width="1280" height="460" fill="#f6f6f6"/>
 <path d="M436.5 118.4L478.6 161.6L453.7 185.9L411.7 142.7L436.5 118.4Z" fill="#eeeeee"/>
@@ -627,14 +634,8 @@
 <text x="640.0" y="298.0" text-anchor="middle" font-size="12" font-family="PT Sans, sans-serif" fill="#9b9b9b" paint-order="stroke" stroke="#f6f6f6" stroke-width="4" stroke-linejoin="round">Сайхун, 166</text>
 </svg>
     <!-- map:end -->
-  </div>
-  <div class="container">
-    <div class="maplinks">
-      <a class="btn btn--outline btn--sm" href="https://yandex.uz/maps/?ll=69.305078%2C41.279101&amp;z=18&amp;pt=69.305078%2C41.279101%2Cpm2rdm" target="_blank" rel="noopener">Яндекс Карты</a>
-      <a class="btn btn--outline btn--sm" href="https://www.google.com/maps/search/?api=1&amp;query=41.279101%2C69.305078" target="_blank" rel="noopener">Google Карты</a>
-      <a class="btn btn--outline btn--sm" href="https://maps.apple.com/?ll=41.279101,69.305078&amp;q=%D0%9F%D0%B0%D1%80%D0%B8%D0%BA%D0%BC%D0%B0%D1%85%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F" target="_blank" rel="noopener">Apple Карты</a>
+      </div>
     </div>
-    <p class="mapnote">Карта нарисована по данным <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a></p>
   </div>
 </section>
 </main>

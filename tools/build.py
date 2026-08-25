@@ -69,7 +69,6 @@ NAV = """<nav class="nav" aria-label="Основная навигация">
     <li><a class="nav__link" href="{base}index.html#salon">О нас</a></li>
     <li><a class="nav__link" href="{base}index.html#team">Мастера</a></li>
     <li><a class="nav__link" href="{base}index.html#prices">Цены</a></li>
-    <li><a class="nav__link" href="{base}index.html#tools">Инструмент</a></li>
     <li><a class="nav__link" href="{base}index.html#gallery">Фото</a></li>
     <li><a class="nav__link" href="{base}index.html#contacts">Контакты</a></li>
   </ul>
