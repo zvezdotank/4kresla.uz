@@ -221,7 +221,7 @@ def render(data, px_w, px_h, span_m):
              f'<path d="{scissors}"/><circle cx="30" cy="79" r="10"/><circle cx="70" cy="79" r="10"/></g>')
     o.append('</g>')
     o.append(f'<text x="{mx:.1f}" y="{my + r + 26:.1f}" text-anchor="middle" font-size="15" '
-             f'font-family="Oswald, sans-serif" font-weight="700" letter-spacing="0.14em" '
+             f'font-family="PT Sans Narrow, sans-serif" font-weight="700" letter-spacing="0.14em" '
              f'fill="{INK}" paint-order="stroke" stroke="{BG}" stroke-width="5" '
              f'stroke-linejoin="round">{NAME.upper()}</text>')
     o.append(f'<text x="{mx:.1f}" y="{my + r + 46:.1f}" text-anchor="middle" font-size="12" '
