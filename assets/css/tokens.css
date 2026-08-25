@@ -1,7 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Marck+Script&display=swap");
-/* Substitution note: original page fonts were not supplied. Oswald (condensed uppercase display),
-   PT Sans (Cyrillic body) and Marck Script (handwritten accent) are the nearest Google Fonts matches. */
-:root{--font-display:"Oswald",Impact,sans-serif;--font-body:"PT Sans","Helvetica Neue",Arial,sans-serif;--font-script:"Marck Script",cursive}
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Sans+Narrow:wght@400;700&display=swap");
+/* Шрифты вывесочные, не «изысканные»: PT Sans Narrow в заголовках и логотипе,
+   PT Sans в тексте. Рукописный Marck Script из исходного макета убран — он обещал
+   салон другого ценового сегмента. */
+:root{--font-display:"PT Sans Narrow","Arial Narrow",sans-serif;--font-body:"PT Sans","Helvetica Neue",Arial,sans-serif}
 :root{
 /* base neutrals */
 --ink-1000:#111111;--ink-900:#1c1c1c;--ink-800:#242424;--ink-700:#333333;--ink-600:#4a4a4a;--ink-500:#6e6e6e;--ink-400:#9b9b9b;--ink-300:#c9c9c9;--ink-200:#e2e2e2;--ink-100:#f0f0f0;--ink-050:#f6f6f6;--paper:#ffffff;

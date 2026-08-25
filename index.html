@@ -7,12 +7,13 @@
 <meta name="description" content="Парикмахерская на первом этаже девятиэтажки на Сайхуне: мужские, женские и детские стрижки. Работает с 1972 года. Только по записи: +998 90 357-95-40. Ежедневно с 9:00 до 18:00.">
 <meta name="theme-color" content="#1c1c1c">
 <link rel="icon" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="canonical" href="https://4kresla.uz/">
 <meta property="og:url" content="https://4kresla.uz/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Четыре кресла — парикмахерская на Сайхуне">
 <meta property="og:description" content="Обычная парикмахерская на Сайхуне, которая работает с 1972 года. Стрижём мужчин, женщин и детей. Только по записи.">
-<meta property="og:image" content="https://4kresla.uz/assets/img/interior-wide.jpg">
+<meta property="og:image" content="https://4kresla.uz/assets/logo/4kresla-vertikalnyy-chernyy.png">
 <meta property="og:locale" content="ru_RU">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +28,7 @@
 <!-- Иконки: контуры Lucide 0.460 (scissors, sparkles, image, send, instagram, clock, phone, map-pin, x),
      встроены спрайтом вместо CDN. Обводка 1.5, без заливки — как в дизайн-системе. -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-  <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></symbol>
+  <symbol id="i-scissors" viewBox="0 0 100 100"><g fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M34 70 50 46 57 10"/><path d="M66 70 50 46 43 10"/><circle cx="30" cy="79" r="10"/><circle cx="70" cy="79" r="10"/></g></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
   <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
@@ -41,9 +42,9 @@
 <a class="visually-hidden" href="#salon">Перейти к содержанию</a>
 
 <nav class="nav" aria-label="Основная навигация">
-  <span class="nav__mark" aria-hidden="true">
-    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-scissors"/></svg>
-  </span>
+  <a class="nav__mark" href="#top" aria-label="Наверх">
+    <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 100 100"><use href="#i-scissors"/></svg>
+  </a>
   <button class="nav__burger" id="burger" type="button" aria-expanded="false" aria-controls="nav-list" aria-label="Меню">
     <span></span><span></span><span></span>
   </button>
@@ -52,6 +53,7 @@
     <li><a class="nav__link" href="#salon">О нас</a></li>
     <li><a class="nav__link" href="#team">Мастера</a></li>
     <li><a class="nav__link" href="#prices">Цены</a></li>
+    <li><a class="nav__link" href="#tools">Инструмент</a></li>
     <li><a class="nav__link" href="#gallery">Фото</a></li>
     <li><a class="nav__link" href="#contacts">Контакты</a></li>
   </ul>
@@ -62,10 +64,8 @@
   <img class="hero__img photo" src="assets/img/interior-wide.jpg" alt="" width="1000" height="439">
   <span class="hero__scrim"></span>
   <div class="hero__inner">
-    <h1 class="wordmark">
-      <span class="wordmark__script">Четыре кресла</span>
-      <span class="wordmark__name">парикмахерская на Сайхуне</span>
-      <span class="wordmark__tagline">стрижём с 1972 года</span>
+    <h1 class="hero__logo">
+      <img src="assets/logo/4kresla-vertikalnyy-belyy.svg" alt="Четыре кресла — парикмахерская на Сайхуне, с 1972 года" width="340" height="282">
     </h1>
     <a class="btn btn--primary btn--lg" href="tel:+998903579540">Записаться по телефону</a>
     <p class="hero__note">Ташкент, Сайхун 166 &middot; только по записи</p>
@@ -124,6 +124,35 @@
       <div class="price"><span class="price__service">Детская стрижка</span><span class="price__leader" aria-hidden="true"></span><span class="price__value">от 100 000 сум</span></div>
     </div>
     <p class="prices__note">Цена зависит от длины волос и работы — точную сумму мастер назовёт по телефону.</p>
+  </div>
+</section>
+
+<section class="section" id="tools">
+  <div class="container">
+    <div class="heading"><h2>Инструмент</h2><span class="rule"></span></div>
+    <p class="intro">Хорошая стрижка — это мастер и то, что у него в руках. За полвека здесь сменились кресла и зеркала, а набор остался тот же: им и работают.</p>
+    <div class="tools">
+      <figure class="tool">
+        <svg class="tool__icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M34 70 50 46 57 10"/><path d="M66 70 50 46 43 10"/><circle cx="30" cy="79" r="10"/><circle cx="70" cy="79" r="10"/></svg>
+        <figcaption><span class="tool__name">Ножницы</span><span class="tool__note">прямой рез, основная работа</span></figcaption>
+      </figure>
+      <figure class="tool">
+        <svg class="tool__icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M34 70 50 46 57 10"/><path d="M66 70 50 46 43 10"/><circle cx="30" cy="79" r="10"/><circle cx="70" cy="79" r="10"/><path d="M39 26h9M42 38h9M45 50h8" stroke="var(--brass-500)" stroke-width="5"/></svg>
+        <figcaption><span class="tool__name">Филировочные</span><span class="tool__note">снимают лишний объём</span></figcaption>
+      </figure>
+      <figure class="tool">
+        <svg class="tool__icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M40 20h20a4 4 0 0 1 4 4v34H36V24a4 4 0 0 1 4-4z"/><path d="M26 58h48v8H26z"/><path d="M31 66v7M39 66v7M50 66v7M61 66v7M69 66v7" stroke="var(--brass-500)" stroke-width="5"/><path d="M43 32h14" stroke="var(--brass-500)" stroke-width="5"/></svg>
+        <figcaption><span class="tool__name">Машинка</span><span class="tool__note">затылок и виски</span></figcaption>
+      </figure>
+      <figure class="tool">
+        <svg class="tool__icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 44 52 28l5 11-40 16z"/><path d="M63 44 87 68" stroke="var(--brass-500)" stroke-width="7" stroke-linecap="round"/><circle cx="59" cy="40" r="4" fill="currentColor" stroke="none"/></svg>
+        <figcaption><span class="tool__name">Опасная бритва</span><span class="tool__note">контур, шея, борода</span></figcaption>
+      </figure>
+      <figure class="tool">
+        <svg class="tool__icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="30" width="68" height="16" rx="3"/><path d="M24 46v26M33 46v26M42 46v26M50 46v26M59 46v26M68 46v26M77 46v26" stroke="var(--brass-500)"/></svg>
+        <figcaption><span class="tool__name">Расчёска</span><span class="tool__note">делит и держит прядь</span></figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -412,7 +441,7 @@
 <g transform="translate(640.0 210.0)">
 <circle r="41.8" fill="#111111" opacity="0.10"/>
 <circle r="22" fill="#111111"/>
-<g transform="translate(-16.37 -16.37) scale(1.364)"><path d="M6 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6ZM8.12 8.12 12 12M20 4 8.12 15.88M6 15a3 3 0 1 0 0 6 3 3 0 0 0 0-6ZM14.8 14.8 20 20" fill="none" stroke="#c1a054" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g transform="translate(-17.05 -15.69) scale(0.3410)" fill="none" stroke="#c1a054" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M34 70 50 46 57 10M66 70 50 46 43 10"/><circle cx="30" cy="79" r="10"/><circle cx="70" cy="79" r="10"/></g>
 </g>
 <text x="640.0" y="258.0" text-anchor="middle" font-size="15" font-family="Oswald, sans-serif" font-weight="700" letter-spacing="0.14em" fill="#111111" paint-order="stroke" stroke="#f6f6f6" stroke-width="5" stroke-linejoin="round">ЧЕТЫРЕ КРЕСЛА</text>
 <text x="640.0" y="278.0" text-anchor="middle" font-size="12" font-family="PT Sans, sans-serif" fill="#9b9b9b" paint-order="stroke" stroke="#f6f6f6" stroke-width="4" stroke-linejoin="round">Сайхун, 166</text>
@@ -431,9 +460,10 @@
 </main>
 
 <footer class="footer">
-  <span class="footer__credit">Четыре кресла</span>
+  <a class="footer__credit" href="#top"><img src="assets/logo/4kresla-gorizontalnyy-belyy.svg" alt="Четыре кресла" width="196" height="55"></a>
   <span class="footer__since">Стрижём с 1972 года</span>
   <span class="footer__note">
+    <a class="footer__link" href="media.html">Логотипы и медиа</a>
     <a class="footer__link" href="https://sales-hub.uz/?utm_source=4kresla.uz&amp;utm_medium=referral&amp;utm_campaign=footer" target="_blank" rel="noopener">Сайт и продвижение — Sales HUB</a>
   </span>
 </footer>

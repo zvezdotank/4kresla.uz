@@ -69,6 +69,7 @@ NAV = """<nav class="nav" aria-label="Основная навигация">
     <li><a class="nav__link" href="{base}index.html#salon">О нас</a></li>
     <li><a class="nav__link" href="{base}index.html#team">Мастера</a></li>
     <li><a class="nav__link" href="{base}index.html#prices">Цены</a></li>
+    <li><a class="nav__link" href="{base}index.html#tools">Инструмент</a></li>
     <li><a class="nav__link" href="{base}index.html#gallery">Фото</a></li>
     <li><a class="nav__link" href="{base}index.html#contacts">Контакты</a></li>
   </ul>
@@ -76,9 +77,10 @@ NAV = """<nav class="nav" aria-label="Основная навигация">
 </nav>"""
 
 FOOTER = """<footer class="footer">
-  <a class="footer__credit" href="{base}index.html">Четыре кресла</a>
+  <a class="footer__credit" href="{base}index.html"><img src="{base}assets/logo/4kresla-gorizontalnyy-belyy.svg" alt="Четыре кресла" width="196" height="55"></a>
   <span class="footer__since">Стрижём с 1972 года</span>
   <span class="footer__note">
+    <a class="footer__link" href="{base}media.html">Логотипы и медиа</a>
     <a class="footer__link" href="https://sales-hub.uz/?utm_source={domain}&amp;utm_medium=referral&amp;utm_campaign=footer" target="_blank" rel="noopener">Сайт и продвижение — Sales HUB</a>
   </span>
 </footer>"""
@@ -158,7 +160,7 @@ def page(m):
 <title>{E(title)}</title>
 <meta name="description" content="{E(desc)}">
 <meta name="theme-color" content="#1c1c1c">
-<link rel="icon" href="../favicon.svg">
+<link rel="icon" href="../favicon.svg">\n<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="canonical" href="https://{DOMAIN}/masters/{m['slug']}.html">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="{E(name)} — {E(m['role'])}">
@@ -229,6 +231,133 @@ def page(m):
 """
 
 
+def dl(title, note, preview_bg, preview_file, svg_file, png_file):
+    return f"""      <figure class="media-item">
+        <div class="media-item__preview" style="background:{preview_bg}">
+          <img src="assets/logo/{preview_file}" alt="{title}" loading="lazy">
+        </div>
+        <figcaption>
+          <span class="media-item__name">{title}</span>
+          <span class="media-item__note">{note}</span>
+          <span class="media-item__links">
+            <a class="btn btn--outline btn--sm" href="assets/logo/{svg_file}" download>SVG</a>
+            <a class="btn btn--outline btn--sm" href="assets/logo/{png_file}" download>PNG</a>
+          </span>
+        </figcaption>
+      </figure>
+"""
+
+
+def media_page():
+    scissors = icon("scissors", 22)
+    items = "".join([
+        dl("Горизонтальный, тёмный", "для светлого фона: бланки, документы, светлая вывеска",
+           "#f6f6f6", "4kresla-gorizontalnyy-chernyy.svg",
+           "4kresla-gorizontalnyy-chernyy.svg", "4kresla-gorizontalnyy-chernyy.png"),
+        dl("Горизонтальный, светлый", "для тёмного фона: тёмная табличка, баннер, футболка",
+           "#1c1c1c", "4kresla-gorizontalnyy-belyy.svg",
+           "4kresla-gorizontalnyy-belyy.svg", "4kresla-gorizontalnyy-belyy.png"),
+        dl("Вертикальный, тёмный", "когда место узкое и высокое: стекло двери, стойка",
+           "#f6f6f6", "4kresla-vertikalnyy-chernyy.svg",
+           "4kresla-vertikalnyy-chernyy.svg", "4kresla-vertikalnyy-chernyy.png"),
+        dl("Вертикальный, светлый", "тот же вариант для тёмного фона",
+           "#1c1c1c", "4kresla-vertikalnyy-belyy.svg",
+           "4kresla-vertikalnyy-belyy.svg", "4kresla-vertikalnyy-belyy.png"),
+        dl("Знак в квадрате", "аватарка в картах и мессенджерах, иконка сайта",
+           "#f6f6f6", "4kresla-znak-kvadrat.svg",
+           "4kresla-znak-kvadrat.svg", "4kresla-znak-kvadrat.png"),
+        dl("Только ножницы", "когда название уже написано рядом: печать, тиснение, плёнка",
+           "#f6f6f6", "4kresla-znak-chernyy.svg",
+           "4kresla-znak-chernyy.svg", "4kresla-znak-kvadrat.png"),
+    ])
+    return f"""<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Медиа — логотипы парикмахерской «Четыре кресла»</title>
+<meta name="description" content="Логотипы парикмахерской «Четыре кресла» в векторе и растре, цвета, шрифты и правила написания названия. Для рекламщиков и типографий.">
+<meta name="theme-color" content="#1c1c1c">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://{DOMAIN}/media.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+{SPRITE}
+
+{NAV.format(base="", scissors=scissors, phone=SALON["phone"], phone_text=SALON["phone_text"])}
+
+<main>
+<nav class="crumbs container" aria-label="Хлебные крошки">
+  <a href="index.html">Главная</a><span aria-hidden="true">·</span><span>Медиа</span>
+</nav>
+
+<section class="section section--flush-top">
+  <div class="container">
+    <div class="heading"><h2>Медиа</h2><span class="rule"></span></div>
+    <p class="intro">Здесь лежит всё, что может понадобиться тому, кто делает нам рекламу, вывеску или визитки. Ссылку на эту страницу можно просто переслать — качать ничего заранее не нужно.</p>
+    <p class="intro intro--tight">Вектор (SVG) — для вывесок и печати, текст переведён в кривые, поэтому шрифт устанавливать не надо. Растр (PNG) — с прозрачным фоном, для соцсетей и документов.</p>
+    <p class="media-all"><a class="btn btn--primary" href="assets/logo/4kresla-logo.zip" download>Скачать всё одним архивом</a></p>
+  </div>
+</section>
+
+<section class="section section--alt section--flush-bottom">
+  <div class="container">
+    <div class="heading"><h2>Логотип</h2><span class="rule"></span></div>
+    <div class="media-grid">
+{items}    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="heading"><h2>Цвета и шрифт</h2><span class="rule"></span></div>
+    <div class="swatches">
+      <div class="swatch"><span class="swatch__chip" style="background:#111111"></span><span class="swatch__name">Чернильный</span><span class="swatch__code">#111111</span></div>
+      <div class="swatch"><span class="swatch__chip" style="background:#c1a054"></span><span class="swatch__name">Латунь</span><span class="swatch__code">#c1a054</span></div>
+      <div class="swatch"><span class="swatch__chip" style="background:#ffffff;box-shadow:inset 0 0 0 1px var(--border-hairline)"></span><span class="swatch__name">Бумага</span><span class="swatch__code">#ffffff</span></div>
+    </div>
+    <p class="intro">Шрифт названия и заголовков — <b>PT Sans Narrow</b>, текста — <b>PT Sans</b>. Оба бесплатные, скачиваются на <a href="https://fonts.google.com/specimen/PT+Sans+Narrow" target="_blank" rel="noopener">Google Fonts</a>. В самих файлах логотипа шрифт уже в кривых, ставить его нужно только для новых надписей.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="heading"><h2>Как писать про нас</h2><span class="rule"></span></div>
+    <div class="facts">
+      <div class="fact"><span class="fact__label">Название</span><span class="fact__value">Четыре кресла</span></div>
+      <div class="fact"><span class="fact__label">Кто мы</span><span class="fact__value">парикмахерская, работает с 1972 года</span></div>
+      <div class="fact"><span class="fact__label">Адрес</span><span class="fact__value">{SALON["address"]}, 1-й этаж 9-этажного дома</span></div>
+      <div class="fact"><span class="fact__label">Телефон</span><span class="fact__value">{SALON["phone_text"]}, Евгений</span></div>
+      <div class="fact"><span class="fact__label">Часы</span><span class="fact__value">{SALON["hours"]}, только по предварительной записи</span></div>
+      <div class="fact"><span class="fact__label">Сайт</span><span class="fact__value">{DOMAIN}</span></div>
+    </div>
+    <p class="intro">Чего не делаем с логотипом: не растягиваем по одной оси, не перекрашиваем, не добавляем тени, обводки и градиенты, не ставим на пёстрое фото без тёмной подложки.</p>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="heading"><h2>Фотографии</h2><span class="rule"></span></div>
+    <p class="intro">Появятся здесь, когда снимем парикмахерскую и мастеров. Тогда рекламщикам не придётся ничего просить — всё будет лежать на этой странице.</p>
+  </div>
+</section>
+</main>
+
+{FOOTER.format(base="", domain=DOMAIN)}
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
+"""
+
+
 # ── спрайт иконок берём из index.html, чтобы он был в одном месте ───────
 index_path = ROOT / "index.html"
 index_html = index_path.read_text()
@@ -245,6 +374,8 @@ if __name__ == "__main__":
     out.mkdir(exist_ok=True)
     for m in MASTERS:
         (out / f'{m["slug"]}.html').write_text(page(m))
+
+    (ROOT / "media.html").write_text(media_page())
 
     # карта сайта
     urls = [f"https://{DOMAIN}/"] + [f'https://{DOMAIN}/masters/{m["slug"]}.html' for m in MASTERS]

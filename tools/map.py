@@ -211,15 +211,14 @@ def render(data, px_w, px_h, span_m):
 
     # ── метка салона: чернильный круг с латунными ножницами ─────────────
     r = 22
-    scissors = ('M6 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6ZM8.12 8.12 12 12M20 4 8.12 15.88'
-                'M6 15a3 3 0 1 0 0 6 3 3 0 0 0 0-6ZM14.8 14.8 20 20')
+    scissors = 'M34 70 50 46 57 10M66 70 50 46 43 10'   # тот же знак, что в логотипе
     o.append(f'<g transform="translate({mx:.1f} {my:.1f})">')
     o.append(f'<circle r="{r * 1.9:.1f}" fill="{INK}" opacity="0.10"/>')
     o.append(f'<circle r="{r}" fill="{INK}"/>')
-    ls = r * 0.062
-    o.append(f'<g transform="translate({-12 * ls:.2f} {-12 * ls:.2f}) scale({ls:.3f})">'
-             f'<path d="{scissors}" fill="none" stroke="{BRASS}" stroke-width="1.8" '
-             f'stroke-linecap="round" stroke-linejoin="round"/></g>')
+    ls = r * 0.0155
+    o.append(f'<g transform="translate({-50 * ls:.2f} {-46 * ls:.2f}) scale({ls:.4f})" '
+             f'fill="none" stroke="{BRASS}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">'
+             f'<path d="{scissors}"/><circle cx="30" cy="79" r="10"/><circle cx="70" cy="79" r="10"/></g>')
     o.append('</g>')
     o.append(f'<text x="{mx:.1f}" y="{my + r + 26:.1f}" text-anchor="middle" font-size="15" '
              f'font-family="Oswald, sans-serif" font-weight="700" letter-spacing="0.14em" '

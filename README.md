@@ -4,12 +4,17 @@
 Одна страница, без сборки: открывается `index.html` как есть.
 
 ```
-index.html            вся страница
+index.html            главная
+media.html            страница «Медиа» — логотипы для рекламщиков (собирается)
+masters/*.html        страницы мастеров (собираются)
 assets/css/tokens.css токены дизайн-системы (цвет, шрифт, отступы) — из handoff Claude Design
 assets/css/site.css   вёрстка страницы
 assets/js/app.js      меню, подсветка навигации, лайтбокс галереи
 assets/img/           фотографии
 tools/map.py          рисует карту по данным OpenStreetMap и вписывает её в index.html
+tools/build.py        карточки мастеров, страницы мастеров, media.html, sitemap.xml
+tools/logo.py         логотипы в assets/logo (текст в кривых), фавикон, архив для рекламщиков
+content/masters.json  данные мастеров — единственное место, где их правят
 design-system/        исходный handoff-бандл Claude Design (справочник, в сайт не подключён)
 ```
 
@@ -20,6 +25,15 @@ design-system/        исходный handoff-бандл Claude Design (спр�
   и `+998 90 357-95-40` в видимом тексте.
 - **Часы работы** — блок контактов и `openingHours` в микроразметке в `<head>`.
 - **Цвета и шрифты** — только `assets/css/tokens.css`, в `site.css` захардкоженных цветов нет.
+- **Мастера** — `content/masters.json`, потом `python3 tools/build.py`.
+
+## Логотип
+
+Собирается `python3 tools/logo.py` (нужен Google Chrome для PNG). Текст переводится
+в кривые шрифтом PT Sans Narrow из `tools/fonts`, поэтому файлы открываются везде
+без установки шрифта. Результат — `assets/logo/`, `favicon.svg`, `apple-touch-icon.png`
+и архив `assets/logo/4kresla-logo.zip`, который отдаём рекламщикам ссылкой на
+`/media.html`.
 
 ## Мастера
 
