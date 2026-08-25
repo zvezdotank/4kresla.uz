@@ -236,7 +236,7 @@ body.is-locked{overflow:hidden}
 }
 
 /* якоря под липкой шапкой */
-#salon,#team,#prices,#gallery,#contacts{scroll-margin-top:var(--nav-h)}
+#top,#salon,#team,#prices,#gallery,#contacts{scroll-margin-top:var(--nav-h)}
 
 /* пятая плитка галереи в две колонки — во всю ширину, чтобы не оставалась дырка */
 @media (max-width:560px){ .gallery .tile:last-child{grid-column:span 2} }

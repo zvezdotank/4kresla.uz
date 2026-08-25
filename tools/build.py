@@ -65,6 +65,7 @@ NAV = """<nav class="nav" aria-label="Основная навигация">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav__list" id="nav-list">
+    <li><a class="nav__link" href="{base}index.html">Главная</a></li>
     <li><a class="nav__link" href="{base}index.html#salon">О нас</a></li>
     <li><a class="nav__link" href="{base}index.html#team">Мастера</a></li>
     <li><a class="nav__link" href="{base}index.html#prices">Цены</a></li>
