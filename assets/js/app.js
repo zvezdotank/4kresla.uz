@@ -114,6 +114,52 @@
     if (e.target === lightbox || e.target.closest('[data-close]')) closeOverlay(lightbox);
   });
 
+  /* ---------- события для аналитики ---------- */
+  /* Считаем не просмотры, а действия: звонки, маршруты и скачивания логотипа.
+     Если счётчик не загрузился (блокировщик, нет сети) — просто ничего не шлём. */
+  function track(name, params) {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  }
+
+  function place(el) {
+    if (el.closest('.callbar')) return 'плавающая кнопка';
+    if (el.closest('.nav')) return 'шапка';
+    if (el.closest('.hero')) return 'первый экран';
+    if (el.closest('.band-dark')) return 'полоса «только по записи»';
+    if (el.closest('.profile__actions')) return 'страница мастера';
+    if (el.closest('.prices__note')) return 'под ценами';
+    if (el.closest('.contacts')) return 'контакты';
+    return 'другое';
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+
+    if (href.indexOf('tel:') === 0) {
+      track('call_click', { place: place(a) });
+      return;
+    }
+    if (a.hasAttribute('download')) {
+      track('logo_download', { file: href.split('/').pop() });
+      return;
+    }
+    if (/yandex\.|google\.com\/maps|maps\.apple\.com/.test(href)) {
+      track('map_click', {
+        service: /yandex/.test(href) ? 'Яндекс' : (/apple/.test(href) ? 'Apple' : 'Google')
+      });
+    }
+  });
+
+  /* переход на страницу мастера — видно, кем интересуются */
+  $$('.master').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var name = $('.master__name', card);
+      track('master_open', { master: name ? name.textContent.trim() : '' });
+    });
+  });
+
   /* ---------- клавиатура ---------- */
   document.addEventListener('keydown', function (e) {
     if (!lightbox.hidden) {

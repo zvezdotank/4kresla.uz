@@ -19,6 +19,14 @@ DATA = json.loads((ROOT / "content" / "masters.json").read_text())
 SALON = DATA["salon"]
 MASTERS = DATA["masters"]
 DOMAIN = "4kresla.uz"
+GA = """<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-12Y14H89JE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-12Y14H89JE');
+</script>"""
 
 E = lambda s: html.escape(s, quote=True)
 
@@ -178,6 +186,7 @@ def page(m):
 <script type="application/ld+json">
 {json.dumps(ld, ensure_ascii=False)}
 </script>
+{GA}
 </head>
 <body>
 
@@ -292,6 +301,7 @@ def media_page():
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/site.css">
+{GA}
 </head>
 <body>
 
