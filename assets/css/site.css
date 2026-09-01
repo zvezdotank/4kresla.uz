@@ -74,7 +74,8 @@ img{display:block;max-width:100%}
 /* ---------- hero ---------- */
 .hero{position:relative;height:520px;overflow:hidden;background:var(--surface-photo)}
 .hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
-.hero__scrim{position:absolute;inset:0;background:var(--overlay-photo)}
+/* кадр интерьера светлый — вуаль плотнее обычной, иначе белый текст не читается */
+.hero__scrim{position:absolute;inset:0;background:var(--overlay-photo-strong)}
 .hero__inner{position:relative;height:100%;display:flex;flex-direction:column;align-items:center;
   justify-content:center;gap:var(--space-6);padding:0 var(--container-pad);text-align:center}
 
@@ -94,7 +95,7 @@ img{display:block;max-width:100%}
 .scroll-cue span:nth-child(3){opacity:.44}
 
 .hero__note{font:var(--type-label);font-size:var(--fs-xs);letter-spacing:var(--ls-label);
-  text-transform:uppercase;color:rgba(255,255,255,.75);margin:calc(-1 * var(--space-3)) 0 0}
+  text-transform:uppercase;color:rgba(255,255,255,.9);margin:calc(-1 * var(--space-3)) 0 0}
 .prices__note{text-align:center;font-size:var(--fs-sm);color:var(--text-body);margin:var(--space-5) 0 0}
 .prices__note a{white-space:nowrap}
 
