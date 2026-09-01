@@ -74,8 +74,12 @@ img{display:block;max-width:100%}
 /* ---------- hero ---------- */
 .hero{position:relative;height:520px;overflow:hidden;background:var(--surface-photo)}
 .hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
-/* кадр интерьера светлый — вуаль плотнее обычной, иначе белый текст не читается */
-.hero__scrim{position:absolute;inset:0;background:var(--overlay-photo-strong)}
+.hero__scrim{position:absolute;inset:0;background:var(--overlay-photo)}
+/* светлый герой: рисунок на бумаге, поэтому вуаль бумажная, а не чернильная */
+.hero--light .hero__scrim{background:rgba(247,242,232,.42)}
+.hero--light .hero__note{color:var(--ink-600)}
+.hero--light .scroll-cue{border-color:rgba(17,17,17,.45)}
+.hero--light .scroll-cue span{border-color:rgba(17,17,17,.6)}
 .hero__inner{position:relative;height:100%;display:flex;flex-direction:column;align-items:center;
   justify-content:center;gap:var(--space-6);padding:0 var(--container-pad);text-align:center}
 
@@ -153,9 +157,9 @@ img{display:block;max-width:100%}
 
 /* ---------- gallery ---------- */
 .band{width:100%;height:470px;object-fit:cover}
-.gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-3);
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3);
   padding:var(--space-3) 0;background:var(--paper)}
-.tile{padding:0;border:none;display:block;width:100%;aspect-ratio:16/9;overflow:hidden;
+.tile{padding:0;border:none;display:block;width:100%;aspect-ratio:4/3;overflow:hidden;
   cursor:pointer;background:var(--surface-photo)}
 .tile img{width:100%;height:100%;object-fit:cover;
   transition:opacity var(--dur-base) var(--ease-standard)}
@@ -212,7 +216,6 @@ body.is-locked{overflow:hidden}
 /* ---------- responsive ---------- */
 @media (max-width:1000px){
   .tools{grid-template-columns:repeat(3,1fr)}
-  .gallery{grid-template-columns:repeat(3,1fr)}
 }
 @media (max-width:900px){
   :root{--section-y:var(--space-7);--section-y-tight:var(--space-6)}
@@ -255,7 +258,7 @@ body.is-locked{overflow:hidden}
   .team{grid-template-columns:repeat(2,1fr)}
   .maplinks .btn{flex:1 1 100%}
   .team{grid-template-columns:repeat(3,1fr)}
-  .gallery{grid-template-columns:repeat(2,1fr)}
+  .gallery{grid-template-columns:1fr}
   .form__row{grid-template-columns:1fr}
   .btn--lg{padding:16px 28px;font-size:var(--fs-sm)}
   .hero{min-height:420px}
@@ -273,7 +276,7 @@ body.is-locked{overflow:hidden}
 #top,#salon,#team,#prices,#tools,#gallery,#contacts{scroll-margin-top:var(--nav-h)}
 
 /* пятая плитка галереи в две колонки — во всю ширину, чтобы не оставалась дырка */
-@media (max-width:560px){ .gallery .tile:last-child{grid-column:span 2} }
+
 
 
 /* ---------- страница мастера ---------- */
